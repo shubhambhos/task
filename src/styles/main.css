@@ -1,0 +1,330 @@
+/* Reset and base - prevents horizontal scroll by containing content */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  line-height: 1.5;
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Container: max-width + margin auto keeps content centered, no overflow */
+.container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  width: 100%;
+}
+
+/* Ensure main takes remaining space and doesn't cause overflow */
+main {
+  flex: 1;
+  width: 100%;
+}
+
+/* Header */
+.site-header {
+  background: #1a1a2e;
+  color: #fff;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: #fff;
+}
+
+.nav-desktop {
+  display: none;
+}
+
+.nav-desktop ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.nav-desktop a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav-desktop a:hover {
+  text-decoration: underline;
+}
+
+/* Hamburger button - visible only on mobile */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+}
+
+/* Mobile nav - vertical list, full width */
+.nav-mobile {
+  display: block;
+  width: 100%;
+  flex-basis: 100%;
+}
+
+.nav-mobile ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.nav-mobile li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.nav-mobile a {
+  display: block;
+  padding: 0.75rem 0;
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav-mobile a:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* When mobile menu is closed, hide the list */
+.nav-mobile.collapsed ul {
+  display: none;
+}
+
+/* Tablet and desktop: show desktop nav, hide hamburger and mobile nav */
+@media (min-width: 768px) {
+  .hamburger {
+    display: none;
+  }
+
+  .nav-mobile {
+    display: none;
+  }
+
+  .nav-desktop {
+    display: block;
+  }
+}
+
+/* Hero section */
+.hero {
+  background: linear-gradient(135deg, #16213e 0%, #1a1a2e 100%);
+  color: #fff;
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.hero p {
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  max-width: 600px;
+  margin: 0 auto;
+  opacity: 0.9;
+}
+
+/* Section spacing */
+.section {
+  padding: 3rem 0;
+}
+
+.section-title {
+  text-align: center;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: 2rem;
+  color: #1a1a2e;
+}
+
+/* Cards section - flexbox with wrap for responsive columns */
+.cards-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.card {
+  flex: 1 1 280px;
+  max-width: 100%;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  min-width: 0;
+}
+
+.card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  color: #1a1a2e;
+}
+
+.card p {
+  color: #555;
+  font-size: 0.95rem;
+}
+
+/* FAQ section */
+.faq-list {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  overflow: hidden;
+}
+
+.faq-question {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  text-align: left;
+  background: #f8f9fa;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.faq-question:hover {
+  background: #eee;
+}
+
+.faq-question::after {
+  content: '+';
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.faq-item.is-open .faq-question::after {
+  content: '−';
+}
+
+.faq-answer {
+  padding: 0 1.25rem 1rem;
+  border-top: 1px solid #e0e0e0;
+}
+
+.faq-answer p {
+  margin: 0;
+  padding-top: 0.75rem;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+/* CTA section */
+.cta-section {
+  background: #f0f2f5;
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.cta-section h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: 0.5rem;
+  color: #1a1a2e;
+}
+
+.cta-section p {
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+
+.cta-section a {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: #1a1a2e;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+.cta-section a:hover {
+  background: #16213e;
+}
+
+/* Footer */
+.site-footer {
+  background: #1a1a2e;
+  color: #fff;
+  padding: 1.5rem 0;
+  margin-top: auto;
+}
+
+.site-footer .container {
+  text-align: center;
+}
+
+.site-footer p {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* Extra padding on larger screens for container */
+@media (min-width: 768px) {
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
