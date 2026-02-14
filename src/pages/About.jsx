@@ -45,7 +45,6 @@ const faqData = [
 function About() {
   return (
     <>
-      {/* Hero section */}
       <section className="hero">
         <div className="container">
           <h1>Building Digital Pathways for Success</h1>
@@ -56,7 +55,6 @@ function About() {
         </div>
       </section>
 
-      {/* Cards: Vision, Commitment, Beliefs */}
       <section className="section">
         <div className="container">
           <h2 className="section-title">Wyreflow at a Glance</h2>
@@ -72,7 +70,6 @@ function About() {
         </div>
       </section>
 
-      {/* CTA section */}
       <section className="cta-section">
         <div className="container">
           <h2>Where Technology Meets Vision</h2>
@@ -83,7 +80,6 @@ function About() {
         </div>
       </section>
 
-      {/* FAQ section */}
       <section className="section">
         <div className="container">
           <h2 className="section-title">Frequently Asked Questions</h2>

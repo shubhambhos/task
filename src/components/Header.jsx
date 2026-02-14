@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 function Header() {
-  // Toggle mobile menu open/closed
   const [menuOpen, setMenuOpen] = useState(false)
 
   const toggleMenu = () => {
@@ -16,7 +15,6 @@ function Header() {
           Wyreflow
         </Link>
 
-        {/* Desktop nav - visible from 768px up */}
         <nav className="nav-desktop">
           <ul>
             <li><Link to="/">Home</Link></li>
@@ -26,7 +24,6 @@ function Header() {
           </ul>
         </nav>
 
-        {/* Hamburger - only visible on mobile */}
         <button
           type="button"
           className="hamburger"
@@ -38,7 +35,6 @@ function Header() {
           <span />
         </button>
 
-        {/* Mobile nav - vertical list when open */}
         <nav className={`nav-mobile ${menuOpen ? '' : 'collapsed'}`}>
           <ul>
             <li><Link to="/" onClick={() => setMenuOpen(false)}>Home</Link></li>

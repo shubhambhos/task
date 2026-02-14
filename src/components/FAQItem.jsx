@@ -1,9 +1,5 @@
 import { useState } from 'react'
 
-/**
- * Single FAQ item - toggles answer visibility on click.
- * Accepts question and answer as props.
- */
 function FAQItem({ question, answer }) {
   const [isOpen, setIsOpen] = useState(false)
 

@@ -1,7 +1,3 @@
-/**
- * Reusable card for Vision, Commitment, Beliefs sections.
- * Accepts title and description as props.
- */
 function Card({ title, description }) {
   return (
     <article className="card">
